@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Chef Details";
+}
+@model Chef
+
+<div class="text-center">
+    <div class="jumbotron pt-3 pb-4">
+        <h1 class="display-4" asp-for="Name">@Model.FirstName @Model.LastName</h1>
+        <hr>
+        <div class="card mb-3">
+            <div class="photos mx-auto">
+                <img src="@Model.DataImageUrlField" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+                <p class="card-text">@Model.Description</p>
+            </div>
+        </div>
+        <div>
+            <a href="/chef/@Model.ChefId/edit"><button class="btn btn-outline-dark border-dark mt-1">Edit Chef</button></a>
+        </div>
+        <div>
+            <a href="/chef/@Model.ChefId/delete"><button class="btn btn-outline-danger border-danger mt-1">Delete Chef</button></a>
+        </div>
+    </div>
+</div>

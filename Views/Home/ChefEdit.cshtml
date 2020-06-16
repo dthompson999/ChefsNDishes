@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "Add Chef";
+}
+@model Chef
+
+<div class="text-left">
+    <div class="jumbotron pb-4 pt-4 mb-3">
+        <div class="card bg-dark text-white">
+            <img id="photo" src="~/images/grilled-al-pastor-beef-skewers.jpg" alt="...">
+            <div class="card-img-overlay">
+                <h1 class="display-4 text-white">ChefsNDishes</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="text-center">
+        <div class="card-header text-white bg-dark">
+            <h3>Edit @Model.FirstName @Model.LastName</h3>
+        </div>
+    </div>
+    <div class="card-body bg-info">
+        <form action="/chef/@Model.ChefId/update" method="post">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group mb-0">
+                        <label asp-for="FirstName">First Name</label>
+                        <input type="text" asp-for="FirstName" class="form-control">
+                    </div>
+                    <div class="col-10 text-danger">
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+                    <div class="form-group mt-3 mb-0">
+                        <label asp-for="LastName">Last Name</label>
+                        <input type="text" asp-for="LastName" class="form-control">
+                    </div>
+                    <div class="col-10 text-danger">
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+                    <div class="form-group mt-3 mb-0">
+                        <label asp-for="DOB">Date Of Birth</label>
+                        <input type="date" asp-for="DOB" class="form-control">
+                    </div>
+                    <div class="col-10 text-danger">
+                        <span asp-validation-for="DOB"></span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center">
+                        <div class="form-group mx-sm-3 mb-0">
+                            <label asp-for="ChefRating">Chef Rating</label>
+                            <select type="number" asp-for="ChefRating" class="form-control">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="col-10 text-danger">
+                            <span asp-validation-for="ChefRating"></span>
+                        </div>
+                        <button type="submit" class="btn btn-outline-dark border-dark mt-5">Update Chef</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group mb-0">
+                        <label asp-for="Description">Short Bio</label>
+                        <textarea class="form-control" asp-for="Description" rows="5" cols="10"></textarea>
+                    </div>
+                    <div class="col-10 text-danger">
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                    <div class="form-group mt-3 mb-0">
+                        <label asp-for="DataImageUrlField">Image URL</label>
+                        <input type="text" asp-for="DataImageUrlField" class="form-control">
+                    </div>
+                    <div class="col-10 text-danger">
+                        <span asp-validation-for="DataImageUrlField"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

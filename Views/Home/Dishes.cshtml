@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Dishes Page";
+}
+@model List<Dish>
+
+<div class="text-left">
+    <div class="jumbotron pb-4 pt-4 mb-3">
+        <div class="card bg-dark text-white">
+            <img id="photo" src="~/images/ultra-smashed-burger.jpg" alt="...">
+            <div class="card-img-overlay">
+                <h1 class="display-4 text-dark">ChefsNDishes</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="text-center">
+        <div class="card-header text-white bg-dark">
+            <h3>Catolog Of Dishes</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="thead bg-info">
+                <tr>
+                    <th scope="col">Dish Name</th>
+                    <th scope="col">Chef</th>
+                    <th scope="col">Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Dish d in Model)
+                {
+                    <tr>
+                        <td><a href="/dish/@d.DishId">@d.Name</a></td>
+                        <td>@d.Creator</td>
+                        <td>@d.CreatedAt</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
