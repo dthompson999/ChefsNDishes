@@ -32,6 +32,7 @@ namespace ChefsNDishes.Controllers
         public IActionResult Dishes()
         {
             List<Dish> AllDishes = dbContext.Dishes
+                                    .Include(c => c.Creator)
                                     .OrderByDescending(d => d.CreatedAt)
                                     .ToList();
                                     return View(AllDishes);
